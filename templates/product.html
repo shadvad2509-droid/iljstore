@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.title }} — ILJ{% endblock %}
+
+{% block content %}
+<nav class="breadcrumbs">
+    <a href="/">Главная</a>
+    <span>/</span>
+    <a href="/category/{{ product.category|lower }}">{{ product.category }}</a>
+    <span>/</span>
+    <span>{{ product.title }}</span>
+</nav>
+
+<div class="product">
+    <div class="product__gallery">
+        <div class="product__image">
+            <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.title }}">
+        </div>
+    </div>
+
+    <div class="product__info">
+        <h1 class="product__title">{{ product.title }}</h1>
+        <p class="product__article">Артикул: {{ product.article }}</p>
+        <p class="product__price">{{ product.price }} ₽</p>
+
+        <div class="product__sizes">
+            <label>
+                <input type="radio" name="size" value="S" class="size-input">
+                <span>S</span>
+            </label>
+            <label>
+                <input type="radio" name="size" value="M" class="size-input">
+                <span>M</span>
+            </label>
+            <label>
+                <input type="radio" name="size" value="L" class="size-input">
+                <span>L</span>
+            </label>
+            <label>
+                <input type="radio" name="size" value="XL" class="size-input">
+                <span>XL</span>
+            </label>
+        </div>
+
+        <a href="#" class="btn btn--primary" id="addToCartBtn" style="pointer-events: none; opacity: 0.5;">В корзину</a>
+        <p class="product__note" id="sizeWarning" style="color: #e8b04b;">Выберите размер</p>
+
+        <p class="product__note">Бесплатная доставка от 3000 ₽ · Возврат в течение 14 дней</p>
+
+        <section class="product__description">
+            <h2>Описание</h2>
+            <p>{{ product.description }}</p>
+        </section>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const sizeInputs = document.querySelectorAll('.size-input');
+    const btn = document.getElementById('addToCartBtn');
+    const warning = document.getElementById('sizeWarning');
+    let selectedSize = null;
+
+    sizeInputs.forEach(input => {
+        input.addEventListener('change', () => {
+            if (input.checked) {
+                selectedSize = input.value;
+                btn.style.pointerEvents = 'auto';
+                btn.style.opacity = '1';
+                warning.style.display = 'none';
+                btn.href = `/add-to-cart/{{ product_id }}?size=${selectedSize}`;
+            }
+        });
+    });
+</script>
+{% endblock %}

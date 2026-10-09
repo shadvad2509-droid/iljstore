@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}ILJ — Магазин одежды{% endblock %}
+
+{% block content %}
+<section>
+    <h2 class="section-title">Каталог</h2>
+    <div class="products">
+
+        <a href="/product/4" class="product-card">
+            <div class="product-card__image">
+                <img src="{{ url_for('static', filename='images/longsleeve01.jpg') }}" alt="Лонгслив">
+            </div>
+            <h3 class="product-card__title">Лонгслив чёрный</h3>
+            <p class="product-card__price">3 199 ₽</p>
+        </a>
+
+        <a href="/product/5" class="product-card">
+            <div class="product-card__image">
+                <img src="{{ url_for('static', filename='images/jeans02.jpg') }}" alt="Джинсы синие">
+            </div>
+            <h3 class="product-card__title">Джинсы синие</h3>
+            <p class="product-card__price">3 999 ₽</p>
+        </a>
+
+        <a href="/product/6" class="product-card">
+            <div class="product-card__image">
+                <img src="{{ url_for('static', filename='images/dress02.jpg') }}" alt="Платье фиолетовое">
+            </div>
+            <h3 class="product-card__title">Платье фиолетовое</h3>
+            <p class="product-card__price">3 499 ₽</p>
+        </a>
+
+        <a href="/product/1" class="product-card">
+            <div class="product-card__image">
+                <img src="{{ url_for('static', filename='images/shirt01.jpg') }}" alt="Футболка">
+            </div>
+            <h3 class="product-card__title">Футболка Oversize</h3>
+            <p class="product-card__price">2 799 ₽</p>
+        </a>
+
+        <a href="/product/2" class="product-card">
+            <div class="product-card__image">
+                <img src="{{ url_for('static', filename='images/jeans01.jpg') }}" alt="Джинсы">
+            </div>
+            <h3 class="product-card__title">Джинсы чёрные</h3>
+            <p class="product-card__price">3 999 ₽</p>
+        </a>
+
+        <a href="/product/3" class="product-card">
+            <div class="product-card__image">
+                <img src="{{ url_for('static', filename='images/dress01.jpg') }}" alt="Платье">
+            </div>
+            <h3 class="product-card__title">Платье чёрное</h3>
+            <p class="product-card__price">3 499 ₽</p>
+        </a>
+
+    </div>
+</section>
+{% endblock %}

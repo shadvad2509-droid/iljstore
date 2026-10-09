@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ tag|capitalize }} — ILJ{% endblock %}
+
+{% block content %}
+<section>
+    <h2 class="section-title">{{ tag|capitalize }}</h2>
+    <div class="products">
+        {% for id, p in products.items() %}
+            <a href="/product/{{ id }}" class="product-card">
+                <div class="product-card__image">
+                    <img src="{{ url_for('static', filename='images/' + p.image) }}" alt="{{ p.title }}">
+                </div>
+                <h3 class="product-card__title">{{ p.title }}</h3>
+                <p class="product-card__price">{{ p.price }} ₽</p>
+            </a>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

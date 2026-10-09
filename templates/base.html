@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ILJ — Магазин одежды{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Julee&family=Jura:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header class="header">
+    <div class="container header__inner">
+        <a href="/" class="header__logo">ILJ</a>
+        <nav class="header__nav">
+            <a href="/category/новинки">Новинки</a>
+            <a href="/category/женское">Женское</a>
+            <a href="/category/мужское">Мужское</a>
+        </nav>
+        <a href="/cart" class="header__cart">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+        </a>
+    </div>
+</header>
+
+<main class="main">
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer__inner">
+        <div class="footer__col">
+            <a href="/" class="footer__logo">ILJ</a>
+            <p class="footer__tagline">Одежда для тех, кто ценит стиль</p>
+        </div>
+        <div class="footer__col">
+            <h4>Каталог</h4>
+            <a href="/category/мужское">Мужское</a>
+            <a href="/category/женское">Женское</a>
+            <a href="/category/новинки">Новинки</a>
+        </div>
+        <div class="footer__col">
+            <h4>Помощь</h4>
+            <details class="footer__faq">
+                <summary>Доставка</summary>
+                <p>Доставка по России 3–7 дней. Бесплатно от 3000 ₽. По Санкт-Петербургу — 1–2 дня.</p>
+            </details>
+            <details class="footer__faq">
+                <summary>Возврат</summary>
+                <p>Возврат в течение 14 дней после получения. Товар должен быть без следов носки, с бирками.</p>
+            </details>
+            <details class="footer__faq">
+                <summary>Размеры</summary>
+                <p>S — 44–46, M — 46–48, L — 48–50, XL — 50–52. Если сомневаетесь, берите на размер больше.</p>
+            </details>
+            <details class="footer__faq">
+                <summary>FAQ</summary>
+                <p>Оплата картой при получении или онлайн. Самовывоз — по договорённости в СПб.</p>
+            </details>
+        </div>
+        <div class="footer__col">
+            <h4>Контакты</h4>
+            <p class="footer__contact">Telegram — qvqc1i</p>
+            <p class="footer__contact">Gmail — shadvad2509@gmail.com</p>
+            <p class="footer__contact">GitHub — shadvad2509-droid</p>
+        </div>
+    </div>
+    <div class="container footer__bottom">
+        © 2026 ILJ. Все права защищены.
+    </div>
+</footer>
+
+{% block scripts %}{% endblock %}
+
+</body>
+</html>
